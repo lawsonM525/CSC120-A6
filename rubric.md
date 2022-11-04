@@ -22,11 +22,11 @@ YES 1 pt: The `House` class implements the requested additional methods (`moveIn
 
 ### Level 2: `Library.java` (3 pts)
 
-PART 1 pt: The `Library` class includes the requested attributes
+YES 1 pt: The `Library` class includes the requested attributes
 
-_____ 1 pt: The `Library` class implements the requested methods to add / remove or check out / return titles
+YES 1 pt: The `Library` class implements the requested methods to add / remove or check out / return titles
 
-_____ 1 pt: The `Library` class implements the requested additional methods (`containsTitle(...)`, `isAvailable(...)`, and `printCollection()`)
+YES 1 pt: The `Library` class implements the requested additional methods (`containsTitle(...)`, `isAvailable(...)`, and `printCollection()`)
 
 ### Level 3: `Cafe.java` (3 pts)
 
@@ -42,7 +42,7 @@ YES 1 pt: The `Cafe` class uses the `restock(...)` method to avoid running out o
 
 YES 4 pts: Programs compile without errors or warnings
 
-PART 2 pts: Executes fully & consistently without crashing (exception/freeze)
+YES 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
 YES 2 pt: Complies with style guidelines (missing items 1 pt each):
 

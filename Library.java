@@ -11,7 +11,7 @@ public class Library extends Building {
      *  @param nFloors Number of floors in the library
      */
     public Library(String name, String address, int nFloors) {
-      super(name, address, nFloors);
+      super(name, address, nFloors);//parent constructor
       this.collection = new Hashtable<String, Boolean>();
       System.out.println("You have built a library: 📖");
     }
@@ -26,69 +26,81 @@ public class Library extends Building {
 
     /** 
      *  Removes a book from our library collection altogether
-     *  @param title Title of the book
+     *  @param title Title of the book to be removed
+     *  @return The title that was removed
      */
     public String removeTitle(String title){
       this.collection.remove(title);
       return(title);
-    } // return the title that we removed
+    } 
 
+    /** 
+     *  Removes a book from our library collection altogether
+     *  @param title Title of the book to be checked out
+     */
     public void checkOut(String title){
       if (collection.contains(title)) {
         collection.replace(title, true, false);
       }
       else{
-        System.out.println("This title is not is our collection.");
+        System.err.println("This title is not is our collection.");
       }
     }
-
+    
+    /** 
+     *  Removes a book from our library collection altogether
+     *  @param title Title of the book to be checked in (returned)
+     */
     public void checkIn(String title){
       if (collection.contains(title)) {
         collection.replace(title, false, true);
       }
       else{
-        System.out.println("This title is not is our collection.");
+        System.err.println("This title is not is our collection.");
       }
     }
 
-      /** 
-   *  Checks to see if the book exists in the collection
-   *  @param title title of the book
-   *  @return T/F: is the book in the collection?
+    /** 
+     *  Checks whether a book is in our library collection
+     *  @param title Title of the book
+     *  @return T/F: Is the book in our collection?
+     */
+    public boolean containsTitle(String title){
+    if (collection.contains(title)) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  /** 
+   *  Checks whether a book is available
+   *  @param title Title of the book
+   *  @return T/F: Is the book available?
    */
-  public boolean containsTitle(String title){ // returns true if the title appears as a key in the Libary's collection, false otherwise
-  if (collection.contains(title)) {
-    return true;
+  public boolean isAvailable(String title){ 
+    if (collection.contains(title)) {
+      return collection.get(title);
+    }
+    else{
+      System.err.println("This bookis not in out collection");
+      return false;
+    }
   }
-  else{
-    return false;
-  }
-}
 
- /** 
- *  Checks to see if the book is available to check out
- *  @param title title of the book
- *  @return T/F: is the book available to be checked out?
- */
-public boolean isAvailable(String title){ // returns true if the title is currently available, false otherwise
-  if (collection.contains(title)) {
-    return collection.get(title);
+  /** 
+   *  Prints out our entire library collection
+   */
+  public void printCollection(){
+    System.out.println(this.collection);
   }
-  else{
-    throw new RuntimeException("This book is not in this collection");
-  }
-}
-
- /** 
- *  Prints the collection
- */
-public void printCollection(){
-  System.out.println(this.collection);
-
-}
 
     public static void main(String[] args) {
-      new Library("Nielson","Chapin Drive",4);
+      Library x = new Library("Nielson","Chapin Drive",4);
+      x.addTitle("Bambi - Jidenna");
+      x.addTitle("Snow White -Disney");
+      x.printCollection();
     }
   
   }
